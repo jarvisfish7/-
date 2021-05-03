@@ -24,10 +24,10 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h4 class="modal-title">弹窗</h4><!--弹窗的标题-->
+					<h4 class="modal-title">重置二维码</h4><!--弹窗的标题-->
 				</div>
 				<div class="modal-body" style="max-height: 200px;"><!--弹窗的内容-->
-					<img src="statics/image/photos/default/default.jpg" width="100px" height="100px">
+					<img src="/linjia-secondshop/statics/image/photos/default/default1.jpg" width="200px" height="200px">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><!--弹窗的尾部-->
@@ -103,7 +103,7 @@
 					
 					<div class="col-md-3">
 						<a
-							href="/wzh-secondshop/user/userEdit?userId=${sessionScope.user.getId()}">修改个人资料</a>
+							href="/linjia-secondshop/user/userEdit?userId=${sessionScope.user.getId()}">修改个人资料</a>
 					</div>
 				</div>
 			</div>
@@ -156,7 +156,7 @@
 										<c:forEach var="collect" items="${collects}">
 											<tr style="color: #666666">
 												<td style="width: 102px"><a target="_blank"
-													href="/wzh-secondshop/goods/goodInfo?goodId=${collect.good.id}">${collect.good.id}</a></td>
+													href="/linjia-secondshop/goods/goodInfo?goodId=${collect.good.id}">${collect.good.id}</a></td>
 												<td style="width: 200px">${collect.good.name}</td>
 												<td style="width: 200px">${collect.good.uploadDate}</td>
 												<td style="width: 100px">${collect.good.statusId == 0 ? "已下架":"在售"}</td>
@@ -218,7 +218,7 @@
 										<c:forEach var="good" items="${goods}">
 											<tr style="color: #666666">
 												<td style="width: 102px"><a target="_blank"
-													href="/wzh-secondshop/goods/goodInfo?goodId=${good.id}">${good.id}</a></td>
+													href="/linjia-secondshop/goods/goodInfo?goodId=${good.id}">${good.id}</a></td>
 												<td style="width: 227px">${good.name}</td>
 												<td style="width: 260px">${good.uploadDate}</td>
 												<td>${good.statusId == 0 ? "已下架":"在售"}</td>
@@ -281,7 +281,7 @@
 										<c:forEach var="order" items="${orders}">
 											<tr style="color: #666666">
 												<td style="width: 90px"><a target="_blank"
-													href="/wzh-secondshop/user/orderInfo?orderId=${order.id}">${order.id}</a></td>
+													href="/linjia-secondshop/user/orderInfo?orderId=${order.id}">${order.id}</a></td>
 												<td style="width: 100px">${order.seller}</td>
 												<td style="width: 140px">${order.goodName}</td>
 												<td style="width: 70px">${order.money}</td>
@@ -330,7 +330,7 @@
 						<c:otherwise>
 							<c:forEach var="review" items="${reviews}">
 								<a target="_blank"
-									href="/wzh-secondshop/user/review?goodId=${review.goodId}&reviewId=${review.id}">
+									href="/linjia-secondshop/user/review?goodId=${review.goodId}&reviewId=${review.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -372,7 +372,7 @@
 						<c:otherwise>
 							<c:forEach var="reply" items="${replies}">
 								<a target="_blank"
-									href="/wzh-secondshop/user/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
+									href="/linjia-secondshop/user/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -419,7 +419,7 @@
 							<c:otherwise>
 								<c:forEach var="sellGood" items="${sellGoods}">
 									<a
-										href="/wzh-secondshop/user/sellerInfo?orderId=${sellGood.id}">
+										href="/linjia-secondshop/user/sellerInfo?orderId=${sellGood.id}">
 										<div class="col-md-12 rev"
 											style="padding: 10px; margin-bottom: 5px;">
 											<div class="col-md-11" style="padding: 0px;">
@@ -449,7 +449,7 @@
 		var money=prompt("请输入您要充值的金额 ","0.00");
 		if(money <= 0) {alert("充值失败!请输入大于0的正确金额")}
 		else {
-			$.get("/wzh-secondshop/user/recharge/"+money+"&"+${sessionScope.user.id}, function (data) {
+			$.get("/linjia-secondshop/user/recharge/"+money+"&"+${sessionScope.user.id}, function (data) {
 	            if (!data.flag){
 	                alert("充值失败!请联系管理员处理。电话:15888888888");
 	            } else {
@@ -461,7 +461,7 @@
 	}	
 	
     function deleteCollect(collectId) {
-        $.get("/wzh-secondshop/collect/delete/"+collectId+"&"+${sessionScope.user.id}, function (data) {
+        $.get("/linjia-secondshop/collect/delete/"+collectId+"&"+${sessionScope.user.id}, function (data) {
             if (data === false){
                 alert("未知原因，删除失败！");
             } else {
@@ -473,7 +473,7 @@
                     var collectGoodUploadDate = type.good.uploadDate;
                     var collectGoodStatus = type.good.statusId === 0 ? "已下架":"在售";
                     var collect = "<tr style=\"color: #666666\">"+
-                        "<td style=\"width: 102px\"><a target='_blank' href='/wzh-secondshop/goods/goodInfo?goodId="+collectGoodId+"'>"+collectGoodId+"</a></td>"+
+                        "<td style=\"width: 102px\"><a target='_blank' href='/linjia-secondshop/goods/goodInfo?goodId="+collectGoodId+"'>"+collectGoodId+"</a></td>"+
                     "<td style=\"width: 200px\">"+collectGoodName+"</td>"+
                     "<td style=\"width: 200px\">"+collectGoodUploadDate+"</td>"+
                     "<td style=\"width: 100px\">"+collectGoodStatus+"</td>"+

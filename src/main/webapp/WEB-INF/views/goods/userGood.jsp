@@ -98,7 +98,7 @@
 						<c:otherwise>
 							<c:forEach var="userGood" items="${userGoods}">
 								<a target="_blank"
-									href="/wzh-secondshop/goods/goodInfo?goodId=${userGood.id}">
+									href="/linjia-secondshop/goods/goodInfo?goodId=${userGood.id}">
 									<div class="c col-md-4">
 										<div class="a col-md-12">
 											<img src="<c:url value="${userGood.photoUrl}"/>" width="100%">
@@ -128,7 +128,7 @@
 				style="margin-top: 20px; padding-left: 0px; padding-right: 0px">
 				<c:forEach var="Good" items="${goods}">
 					<a target="_blank"
-						href="/wzh-secondshop/goods/goodInfo?goodId=${Good.id}">
+						href="/linjia-secondshop/goods/goodInfo?goodId=${Good.id}">
 						<div class="col-md-12 b"
 							style="padding-left: 0px; padding-right: 0px">
 							<div class="col-md-6"

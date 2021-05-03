@@ -121,7 +121,7 @@
 					
 					<c:otherwise>
 						<c:forEach var="order" items="${orders}">
-							<a href="/wzh-secondshop/user/sellerInfo?orderId=${order.id}">
+							<a href="/linjia-secondshop/user/sellerInfo?orderId=${order.id}">
 								<div class="col-md-12 rev"
 									style="padding: 10px; margin-bottom: 5px;">
 									<p>${order.submitDate}</p>
@@ -159,10 +159,10 @@
     });
 
     function deleteOrder() {
-        $.getJSON("/wzh-secondshop/user/sellerOrder/delete/" + ${orderInfo.id} + "&" +${orderInfo.goodId}, function (data) {
+        $.getJSON("/linjia-secondshop/user/sellerOrder/delete/" + ${orderInfo.id} + "&" +${orderInfo.goodId}, function (data) {
             if (data == true){
                 alert("交易关闭成功！");
-                $(window).attr('location','/wzh-secondshop/user/userProfile');
+                $(window).attr('location','/linjia-secondshop/user/userProfile');
             } else {
                 alert("有未知原因，交易关闭失败！");
             }

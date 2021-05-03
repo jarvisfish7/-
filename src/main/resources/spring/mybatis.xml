@@ -39,39 +39,39 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="com.wzh.SecShop.mappers" />
+    <property name="basePackage" value="com.linjia.SecShop.mappers" />
     </bean>
 
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.UserMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.UserMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="goodMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.GoodMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.GoodMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="firstTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.FirstTypeMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.FirstTypeMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="secondTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.SecondTypeMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.SecondTypeMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="reviewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.ReviewMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.ReviewMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="imageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.ImageMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.ImageMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="orderMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.OrderMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.OrderMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="collectMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.wzh.secondshop.mappers.CollectMapper"/>
+        <property name="mapperInterface" value="com.linjia.secondshop.mappers.CollectMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 

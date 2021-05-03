@@ -126,7 +126,7 @@
 						</c:forEach>
 					</div>
 					
-					<form action="/wzh-secondshop/goods/userGoodEdit/updateImage"
+					<form action="/linjia-secondshop/goods/userGoodEdit/updateImage"
 						method="post" enctype="multipart/form-data">
 						<input name="goodId" value="${good.id}" style="display: none">
 						<div id="addImg" class="col-md-12"
@@ -238,7 +238,7 @@
 	<script>
     $(function () {
         var goodType = $("#goodType option:selected").attr("value");
-        $.getJSON("/wzh-secondshop/type/secondType/" + goodType, function (data) {
+        $.getJSON("/linjia-secondshop/type/secondType/" + goodType, function (data) {
             console.log(data);
             $.each(data, function (i, type) {
                 var id = type.id;
@@ -253,7 +253,7 @@
     
     function selectValue() {
         var goodType = $("#goodType option:selected").attr("value");
-        $.getJSON("/wzh-secondshop/type/secondType/" + goodType, function (data) {
+        $.getJSON("/linjia-secondshop/type/secondType/" + goodType, function (data) {
             console.log(data);
             document.getElementById("secondType").innerHTML = "";
             $.each(data, function (i, type) {
@@ -278,10 +278,10 @@
     }
 
     function deleteGood() {
-        $.get("/wzh-secondshop/goods/userGoodEdit/delete/" + ${good.id}, function (data) {
+        $.get("/linjia-secondshop/goods/userGoodEdit/delete/" + ${good.id}, function (data) {
             if (data == true){
                 alert("物品删除成功！");
-                $(window).attr('location','/wzh-secondshop/user/userProfile');
+                $(window).attr('location','/linjia-secondshop/user/userProfile');
             } else {
                 alert("物品删除失败！");
             }

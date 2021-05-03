@@ -156,7 +156,7 @@
 				
 				<c:otherwise>
 					<c:forEach var="order" items="${orders}">
-						<a href="/wzh-secondshop/user/orderInfo?orderId=${order.id}">
+						<a href="/linjia-secondshop/user/orderInfo?orderId=${order.id}">
 							<div class="col-md-12 rev"
 								style="padding: 10px; margin-bottom: 5px;">
 								<p>${order.submitDate}</p>
@@ -195,10 +195,10 @@
 
     
     function deleteOrder() {
-        $.getJSON("/wzh-secondshop/user/order/delete/" + ${orderInfo.id}, function (data) {
+        $.getJSON("/linjia-secondshop/user/order/delete/" + ${orderInfo.id}, function (data) {
             if (data == true){
                 alert("订单删除成功！");
-                $(window).attr('location','/wzh-secondshop/user/userProfile');
+                $(window).attr('location','/linjia-secondshop/user/userProfile');
             } else {
                 alert("订单删除失败！");
             }
@@ -206,7 +206,7 @@
     }
 
     function selectValue() {
-        $.getJSON("/wzh-secondshop/user/order/update/status/" + ${orderInfo.id} + "&"+${orderInfo.orderType==0?'3':'4'}, function (data) {
+        $.getJSON("/linjia-secondshop/user/order/update/status/" + ${orderInfo.id} + "&"+${orderInfo.orderType==0?'3':'4'}, function (data) {
             if (data == false){
                 alert("操作失败!请确保余额或积分充足");
             } else {
@@ -244,7 +244,7 @@
     
     function exitCredit() {
         if (confirm("您确定要退还该物品吗?提前退还只退回押金")) { 
-        	$.get("/wzh-secondshop/user/exitCredit/"+${orderInfo.id}, function (data) {
+        	$.get("/linjia-secondshop/user/exitCredit/"+${orderInfo.id}, function (data) {
 	            if (!data){
 	                alert("退租失败");
 	            } else {
@@ -260,7 +260,7 @@
         if(month < 0) {
         	alert("请输入正确的日期!");
         }else {
-        	$.get("/wzh-secondshop/user/continueCredit/"+month+"&"+${orderInfo.id}, function (data) {
+        	$.get("/linjia-secondshop/user/continueCredit/"+month+"&"+${orderInfo.id}, function (data) {
 	            if (!data){
 	                alert("续租失败,请确保账户余额充足");
 	            } else {
@@ -280,7 +280,7 @@
     	}else if(score > 5) {
     		alert("请输入1-5之间的数值");
     	}else {
-    		$.get("/wzh-secondshop/user/grade/"+score + "&" + ${orderInfo.id}, function (data) {
+    		$.get("/linjia-secondshop/user/grade/"+score + "&" + ${orderInfo.id}, function (data) {
 	            if (!data){
 	                alert("评分失败!");
 	            } else {

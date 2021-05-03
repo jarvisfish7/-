@@ -153,7 +153,7 @@
 						<c:otherwise>
 							<c:forEach var="review" items="${reviews}">
 								<a target="_blank"
-									href="/wzh-secondshop/review?goodId=${review.goodId}&reviewId=${review.id}">
+									href="/linjia-secondshop/review?goodId=${review.goodId}&reviewId=${review.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -194,7 +194,7 @@
 						<c:otherwise>
 							<c:forEach var="reply" items="${replies}">
 								<a target="_blank"
-									href="/wzh-secondshop/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
+									href="/linjia-secondshop/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -238,7 +238,7 @@
 							
 							<c:otherwise>
 								<c:forEach var="sellGood" items="${sellGoods}">
-									<a href="/wzh-secondshop/sellerInfo?orderId=${sellGood.id}">
+									<a href="/linjia-secondshop/sellerInfo?orderId=${sellGood.id}">
 										<div class="col-md-12 rev"
 											style="padding: 10px; margin-bottom: 5px;">
 											<div class="col-md-11" style="padding: 0px;">
@@ -282,7 +282,7 @@
 				document.getElementById("passError").innerHTML = "";
 				$.ajax({
 					type : "POST",
-					url : "/wzh-secondshop/user/password/edit",
+					url : "/linjia-secondshop/user/password/edit",
 					contentType : "application/json; charset=UTF-8", //必须这样写
 					dataType : "json",
 					data : JSON.stringify(pass),//要提交是json字符串

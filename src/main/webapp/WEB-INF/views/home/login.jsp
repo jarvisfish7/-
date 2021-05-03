@@ -21,7 +21,7 @@
 	<div class="container" style="position: relative; margin: 80px auto;">
 		<div class="col-md-6 login-back"
 			style="position: absolute; left: 50%; transform: translateX(-50%);">
-			<form action="/wzh-secondshop/login" method="post">
+			<form action="/linjia-secondshop/login" method="post">
 				<input id="preURL" name="preURL" value="${preURL}"
 					style="display: none">
 				<div class="form-group">
@@ -43,8 +43,8 @@
 				<a style="margin-left: 20px; width: 45%" class="btn btn-primary"
 					href="register">注册</a>
 			</form>
-			<a href="/wzh-secondshop/admin/adminLogin">管理员登录</a> <a
-				style="float: right" href="/wzh-secondshop">返回首页</a>
+			<a href="/linjia-secondshop/admin/adminLogin">管理员登录</a> <a
+				style="float: right" href="/linjia-secondshop">返回首页</a>
 		</div>
 	</div>
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>

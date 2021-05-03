@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="linjia-secondshop:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>linjia-secondshop</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="linjia-secondshop.war">
+      <element id="artifact" artifact-name="linjia-secondshop:war exploded" />
+    </root>
+  </artifact>
+</component>

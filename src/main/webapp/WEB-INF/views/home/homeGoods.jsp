@@ -77,7 +77,7 @@
 	<div class="col-md-12" style="height: 80px;" id="search-bar">
 		<div class="col-md-3"></div>
 		<div class="col-md-6" style="padding-top: 10px">
-			<form class="form-horizontal" action="/wzh-secondshop/" method="get">
+			<form class="form-horizontal" action="/linjia-secondshop/" method="get">
 				<div class="form-group col-md-12">
 					<div class="col-md-10">
 						<input id="searchText" name="searchText" type="text"

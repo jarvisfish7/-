@@ -35,7 +35,7 @@ a {
 			<ul class="nav navbar-nav navbar-right">
 				<li><a>${sessionScope.admin.getName()}</a></li>
 				<li><a
-					href="/wzh-secondshop/admin/adminLogout?adminLogout=true">退出</a></li>
+					href="/linjia-secondshop/admin/adminLogout?adminLogout=true">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -375,7 +375,7 @@ a {
 					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
 					<div class="col-md-12 r" style="height: 100%; padding: 15px; padding-left: 10%">
 						
-						<form action="/wzh-secondshop/admin/publishGood1.action" method="post" id="addgoods" enctype="multipart/form-data">
+						<form action="/linjia-secondshop/admin/publishGood1.action" method="post" id="addgoods" enctype="multipart/form-data">
 					        <div class="form-group">
 					            <label for="name">物品名</label>
 					            <input type="text" class="form-control" name="name" id="name" placeholder="请输入物品名称">
@@ -477,7 +477,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/wzh-secondshop/type/firstType/create",
+            url:"/linjia-secondshop/type/firstType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newFirstType),//要提交是json字符串
@@ -510,7 +510,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/wzh-secondshop/type/secondType/create",
+            url:"/linjia-secondshop/type/secondType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newSecondType),//要提交是json字符串
@@ -536,7 +536,7 @@ a {
     }
 
     function deleteFirst(first_id) {
-        $.getJSON("/wzh-secondshop/type/firstType/delete/"+first_id, function (data) {
+        $.getJSON("/linjia-secondshop/type/firstType/delete/"+first_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有二级分类！");
             } else {
@@ -554,7 +554,7 @@ a {
     }
 
     function deleteSecond(second_id) {
-        $.getJSON("/wzh-secondshop/type/secondType/delete/"+second_id, function (data) {
+        $.getJSON("/linjia-secondshop/type/secondType/delete/"+second_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有物品！");
             } else if (data === "isNull") {
@@ -581,7 +581,7 @@ a {
         $(firstId).removeClass("adUlLi").addClass("adUlLi-a");
         document.getElementById("secondType-ba").innerHTML = "";
         document.getElementById("addSecondBtn").style.display = "";
-        $.getJSON("/wzh-secondshop/type/secondType/"+first_id, function (data) {
+        $.getJSON("/linjia-secondshop/type/secondType/"+first_id, function (data) {
             if (data === false){
                 alert("好像出了问题，请重试！")
             } else if (data === "isNull") {
@@ -647,7 +647,7 @@ a {
     }
 
     function setUserStatus(statusId, userId) {
-        $.getJSON("/wzh-secondshop/admin/user/update/status/"+statusId+"&"+userId, function (data) {
+        $.getJSON("/linjia-secondshop/admin/user/update/status/"+statusId+"&"+userId, function (data) {
             if (data === false){
                 alert("用户状态修改失败！");
             } else {
@@ -679,7 +679,7 @@ a {
     }
     
     function delUser(userId) {
-        $.getJSON("/wzh-secondshop/admin/user/delete/"+userId, function (data) {
+        $.getJSON("/linjia-secondshop/admin/user/delete/"+userId, function (data) {
             if (data === false){
                 alert("用户删除失败！");
             } else {
@@ -730,9 +730,9 @@ a {
     }
 
     function delOrder(orderId) {
-        $.getJSON("/wzh-secondshop/user/order/delete/"+orderId, function (data) {
+        $.getJSON("/linjia-secondshop/user/order/delete/"+orderId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/user/order/allOrder", function (data) {
+                $.getJSON("/linjia-secondshop/user/order/allOrder", function (data) {
                     document.getElementById("orderTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var orderId = type.id;
@@ -796,9 +796,9 @@ a {
     }
 
     function delGood(goodId) {
-        $.getJSON("/wzh-secondshop/goods/userGoodEdit/delete/"+goodId, function (data) {
+        $.getJSON("/linjia-secondshop/goods/userGoodEdit/delete/"+goodId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/linjia-secondshop/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;
@@ -828,9 +828,9 @@ a {
     }
 
     function setStatus(goodId) {
-        $.getJSON("/wzh-secondshop/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
+        $.getJSON("/linjia-secondshop/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/linjia-secondshop/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;

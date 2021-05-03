@@ -115,7 +115,7 @@
 					
 					<div class="col-md-12"
 						style="padding: 0px; display: ${good.id == 0 ? 'none' : ''}">
-						<form action="/wzh-secondshop/goods/publishGood/uploadImage"
+						<form action="/linjia-secondshop/goods/publishGood/uploadImage"
 							method="post" enctype="multipart/form-data">
 							<input name="goodId" value="${good.id}" style="display: none">
 							<div class="col-md-12" style="padding: 0px">
@@ -193,7 +193,7 @@
 	<script>
 		$(function() {
 			var goodType = $("#goodType option:selected").attr("value");
-			$.getJSON("/wzh-secondshop/type/secondType/" + goodType, function(
+			$.getJSON("/linjia-secondshop/type/secondType/" + goodType, function(
 					data) {
 				$.each(data, function(i, type) {
 					var id = type.id;
@@ -207,7 +207,7 @@
 		
 		function selectValue() {
 			var goodType = $("#goodType option:selected").attr("value");
-			$.getJSON("/wzh-secondshop/type/secondType/" + goodType, function(
+			$.getJSON("/linjia-secondshop/type/secondType/" + goodType, function(
 					data) {
 				document.getElementById("secondType").innerHTML = "";
 				$.each(data, function(i, type) {
