@@ -80,6 +80,14 @@ public class AdminController {
 		return "redirect:/admin/adminPage";
 	}
 
+    /**
+     * 管理员登录
+     * @param model
+     * @param email
+     * @param password
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
     public String postAdminLogin(ModelMap model,
                                  @RequestParam(value = "email", required = false) String email,
@@ -107,6 +115,12 @@ public class AdminController {
         return "admin/adminLogin";
     }
 
+    /**
+     * 管理员账号退出
+     * @param adminLogout
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/adminLogout", method = RequestMethod.GET)
     public String adminLogout(@RequestParam(required = false, defaultValue = "false" )String adminLogout, HttpSession session){
         if (adminLogout.equals("true")){
@@ -137,6 +151,13 @@ public class AdminController {
         model.addAttribute("orderList", orderList);
         return "admin/adminPage";
     }
+
+    /**
+     * 用户状态的更新
+     * @param statusId
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/user/update/status/{statusId}&{userId}", method = RequestMethod.GET)
     public ResponseEntity updateUserStatus(@PathVariable Integer statusId,
                                             @PathVariable Integer userId){
@@ -148,6 +169,11 @@ public class AdminController {
         return ResponseEntity.ok(success);
     }
 
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/user/delete/{userId}", method = RequestMethod.GET)
     public ResponseEntity deleteUser(@PathVariable Integer userId){
         Boolean success = userService.deleteUser(userId);
