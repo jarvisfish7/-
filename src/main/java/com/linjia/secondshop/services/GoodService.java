@@ -13,16 +13,19 @@ public class GoodService {
 	@Autowired
 	private GoodMapper goodMapper;
 
+	//获取全部商品，分页
 	@Transactional
 	public List<Good> getAllGoods(int offset, int limit) {
 		return goodMapper.getAllGoods(offset, limit);
 	}
 
+	//获取全部商品
 	@Transactional
 	public List<Good> getAllGoodList() {
 		return goodMapper.getAllGoodList();
 	}
 
+	//通过搜索框的信息获取
 	@Transactional
 	public List<Good> getGoodsBySearchAndType(String searchText,
 			Integer secondTypeId, int offset, int limit) {
@@ -36,6 +39,7 @@ public class GoodService {
 		}
 	}
 
+	//通过类型和搜索框获取
 	@Transactional
 	public int getGoodsBySearchAndTypeCount(String searchText,
 			Integer secondTypeId) {

@@ -14,6 +14,18 @@
 	href="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.theme.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 <script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
+
+	<style>
+
+		div.container1 div.row div {
+			margin:5px 0px;
+
+		}
+
+		div.container1 div.row div {
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
 	<jsp:include page="../home/header.jsp" />
@@ -24,14 +36,26 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h4 class="modal-title">重置二维码</h4><!--弹窗的标题-->
+					<h4 class="modal-title">充值页面</h4><!--弹窗的标题-->
 				</div>
 				<div class="modal-body" style="max-height: 200px;"><!--弹窗的内容-->
-					<img src="/linjia-secondshop/statics/image/photos/default/default1.jpg" width="200px" height="200px">
+<%--					输入框--%>
+					<div class="input-group">
+						<span class="input-group-addon">$</span>
+						<input type="text" class="form-control"  id="money_input" placeholder="金额" aria-label="Amount (to the nearest dollar)">
+						<span class="input-group-addon">.00</span>
+					</div>
+<%--					输入框--%>
+					<div class="container1">
+						<div class="row">
+							<div class="col-xs-6 "><img src="/linjia-secondshop/statics/image/photos/微信支付.png" alt="微信充值" width="150px" height="150px" onclick="recharge1()"></div>
+							<div class="col-xs-6 "><img src="/linjia-secondshop/statics/image/photos/支付宝支付.png" alt="支付宝充值" width="150px" height="150px" onclick="recharge1()"></div>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><!--弹窗的尾部-->
-					<button type="button" class="btn btn-primary">保存</button>
+					<button type="button" class="btn btn-primary" onclick="recharge1()">充值</button>
 				</div>
 			</div>
 		</div>
@@ -445,20 +469,42 @@
 
 	<script src="layer.js"></script>
 	<script>
-		function recharge() {
-		var money=prompt("请输入您要充值的金额 ","0.00");
-		if(money <= 0) {alert("充值失败!请输入大于0的正确金额")}
-		else {
-			$.get("/linjia-secondshop/user/recharge/"+money+"&"+${sessionScope.user.id}, function (data) {
-	            if (!data.flag){
-	                alert("充值失败!请联系管理员处理。电话:15888888888");
-	            } else {
-					alert("充值成功!本次充值 "+money+" 元");
-					location.reload(); 
-	            }	
-			})
+		// 充值操作1
+	<%--	function recharge() {--%>
+	<%--	var money=prompt("请输入您要充值的金额 ","0.00");--%>
+	<%--	if(money <= 0) {alert("充值失败!请输入大于0的正确金额")}--%>
+	<%--	else {--%>
+	<%--		$.get("/linjia-secondshop/user/recharge/"+money+"&"+${sessionScope.user.id}, function (data) {--%>
+	<%--            if (!data.flag){--%>
+	<%--                alert("充值失败!请联系管理员处理。电话:10086");--%>
+	<%--            } else {--%>
+	<%--				alert("充值成功!本次充值 "+money+" 元");--%>
+	<%--				location.reload(); --%>
+	<%--            }	--%>
+	<%--		})--%>
+	<%--	}--%>
+	<%--}--%>
+		// 充值操作1
+
+		//充值操作2
+		function recharge1() {
+			console.log('recharge1')
+			var money=$('#money_input').val()
+			console.log(money)
+			if(money <= 0) {alert("充值失败!请输入大于0的正确金额")}
+			else {
+				$.get("/linjia-secondshop/user/recharge/"+money+"&"+${sessionScope.user.id}, function (data) {
+					if (!data.flag){
+						alert("充值失败!请联系管理员处理。电话:10086");
+					} else {
+						alert("充值成功!本次充值 "+money+" 元");
+						location.reload();
+					}
+				})
+			}
 		}
-	}	
+		//充值操作2
+
 	
     function deleteCollect(collectId) {
         $.get("/linjia-secondshop/collect/delete/"+collectId+"&"+${sessionScope.user.id}, function (data) {

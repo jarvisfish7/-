@@ -49,8 +49,8 @@
 						</spring:bind>
 						
 						<spring:bind path="firstTypeId">
-							<div class="form-group">
-								<form:label path="firstTypeId" cssClass="control-label">一级分类</form:label>
+							<div class="form-group">            ；；；；。、
+	·							<form:label path="firstTypeId" cssClass="control-label">一级分类</form:label>
 								<form:select id="goodType" onchange="selectValue()"
 									cssClass="form-control" path="firstTypeId"
 									items="${firstTypes}" itemLabel="name" itemValue="id"></form:select>

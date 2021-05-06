@@ -47,6 +47,7 @@ public class GoodController {
 		this.collectService = collectService;
 	}
 
+	//获取全部商品信息的根
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomeGoods(
 			ModelMap model,
@@ -54,17 +55,22 @@ public class GoodController {
 			@RequestParam(required = false) Integer secondTypeId,
 			@RequestParam(required = false, defaultValue = "0") int offset,
 			@RequestParam(required = false, defaultValue = "40") int limit) {
+		//货物列表list
 		List<Good> goods = goodService.getGoodsBySearchAndType(searchText,
 				secondTypeId, offset, limit);
+		//货物数量
 		double goodsNum = goodService.getGoodsBySearchAndTypeCount(searchText,
 				secondTypeId);
+		//第一种类型列表list
 		List<FirstType> firstTypes = typeService.getAllFirstType();
+		//设置第一种类型的第二种类型
 		for (FirstType firstType : firstTypes) {
 			firstType.setSecondType(typeService
 					.getSecondTypeByFirstTypeId(firstType.getId()));
 		}
 		model.addAttribute("firstTypes", firstTypes);
 		model.addAttribute("goods", goods);
+		//页数
 		model.addAttribute("pages", Math.ceil(goodsNum / limit));
 		model.addAttribute("goodsNum", goodsNum);
 		model.addAttribute("offset", offset);
@@ -110,6 +116,7 @@ public class GoodController {
 		return "goods/goodInfo";
 	}
 
+	//获取商品的详细信息
 	@RequestMapping(value = "/goods/goodInfo", method = RequestMethod.POST)
 	public String putReview(
 			@RequestParam(value = "goodId", required = false) Integer goodId,
