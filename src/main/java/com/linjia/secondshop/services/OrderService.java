@@ -56,7 +56,8 @@ public class OrderService {
     public int updateStatus(Integer statusId, Integer orderId){
         return orderMapper.updateStatus(statusId, orderId);
     }
-    
+
+    //更新用户的积分情况
     @Transactional
     public int updateGrade(Integer money,Integer userid){
     	

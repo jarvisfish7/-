@@ -11,5 +11,8 @@ public class Tesy {
 		System.out.println("1---- " + calendar.getTime());
 		calendar.add(Calendar.MONTH, 1);
 		System.out.println("2---- " + calendar.getTime());
+
+		float a = 2;
+		int b = (int)a ;
 	}
 }

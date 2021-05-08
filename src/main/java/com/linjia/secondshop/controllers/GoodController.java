@@ -78,6 +78,7 @@ public class GoodController {
 		return "home/homeGoods";
 	}
 
+	//返回同类型的商品列表
 	@RequestMapping(value = "/goods/goodInfo", method = RequestMethod.GET)
 	public String getGoodInfo(ModelMap model, HttpSession httpSession,
 			@RequestParam(required = false) Integer goodId) {
@@ -103,6 +104,7 @@ public class GoodController {
 		for (Review review : reviews) {
 			review.setReplys(reviewService.gerReplyByReviewId(review.getId()));
 		}
+		//返回同类型的商品列表
 		List<Good> goods = goodService.getRECGoods(goodInfo.getSecondTypeId(),
 				goodInfo.getId());
 		model.addAttribute("message", message);

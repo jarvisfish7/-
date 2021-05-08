@@ -40,9 +40,11 @@ a {
 		</div>
 	</div>
 	</nav>
-	
+
 	<div class="col-md-12" style="height: 50px"></div>
+
 	<div class="container" style="width: 100%; padding: 0px">
+<%--		左边导航栏--%>
 		<div class="col-md-2"
 			style="background-color: #d2d2d2; height: 92%; padding: 0px;">
 			<div style="float: right; width: 100%;">
@@ -82,7 +84,9 @@ a {
 				</div>
 			</div>
 		</div>
-		
+	<%--		左边导航栏--%>
+
+<%--	右边内容块--%>
 		<div id="menu-context" class="col-md-10"
 			style="background-color: #f3f3f3; height: 92%; padding-left: 0px; padding-right: 30px; float: right;">
 			<div id="menu1-context" class="col-md-12">
@@ -94,6 +98,7 @@ a {
 					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 15px">
 					<div class="col-md-12"
 						style="background-color: #f3f3f3; height: 100%; padding: 15px">
+<%--						左边第一类的内容--%>
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>一级分类</h4>
@@ -109,7 +114,8 @@ a {
 											class="col-md-1 delType">X</div>
 									</c:forEach>
 								</div>
-								
+
+<%--								添加一类型的弹窗--%>
 								<div id="fir" class="col-md-9 r"
 									style="display: none; padding: 15px; background-color: #f3f3f3;">
 									<div class="form-group">
@@ -120,14 +126,19 @@ a {
 									<button onclick="closeAddbar('fir')"
 										class="btn btn-primary pull-right">取消</button>
 								</div>
-								
+<%--								添加一类型的弹窗--%>
+
+<%--								添加按钮--%>
 								<div onclick="openAddbar('fir')" class="col-md-9 addFirstType r"
 									id="addFirstBtn">
 									<B>+</B>
 								</div>
 							</div>
 						</div>
-						
+
+	<%--						左边第一类的内容--%>
+
+	<%--						右边第一类的内容--%>
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>二级分类</h4>
@@ -140,7 +151,8 @@ a {
 										<h3 style="color: #737373">请先选择一级分类</h3>
 									</div>
 								</div>
-								
+
+<%--								第二类添加的弹窗页面--%>
 								<div id="sec" class="col-md-9 r"
 									style="display: none; padding: 15px; background-color: #f3f3f3;">
 									<div class="form-group">
@@ -151,17 +163,22 @@ a {
 									<button onclick="closeAddbar('sec')"
 										class="btn btn-primary pull-right">取消</button>
 								</div>
-								
+<%--								第二类添加的弹窗页面--%>
+
+<%--								第二类添加的弹窗按钮--%>
 								<div onclick="openAddbar('sec')" class="col-md-9 addFirstType r"
 									id="addSecondBtn" style="display: none">
 									<B>+</B>
 								</div>
+<%--								第二类添加的弹窗按钮--%>
 							</div>
 						</div>
+	<%--						右边第一类的内容--%>
 					</div>
 				</div>
 			</div>
 
+<%--			物品管理页--%>
 			<div id="menu2-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>物品管理</h3>
@@ -213,6 +230,9 @@ a {
 				</div>
 			</div>
 
+<%--			物品管理页--%>
+
+<%--			订单管理页--%>
 			<div id="menu3-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>订单管理</h3>
@@ -260,7 +280,9 @@ a {
 					</div>
 				</div>
 			</div>
+<%--			订单管理页--%>
 
+<%--			用户管理页--%>
 			<div id="menu4-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>用户管理</h3>
@@ -311,6 +333,9 @@ a {
 					</div>
 				</div>
 			</div>
+<%--			用户管理页--%>
+
+<%--			物品管理页--%>
 			<div id="menu5-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>物品管理</h3>
@@ -365,7 +390,9 @@ a {
 					</div>
 				</div>
 			</div>
-			
+<%--			物品管理页--%>
+
+<%--			添加积分物品--%>
 			<div id="menu6-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>添加积分物品</h3>
@@ -406,17 +433,19 @@ a {
 					</div>
 				</div>
 			</div>
-			
+<%--			添加积分物品--%>
 		</div>
+	<%--	右边内容块--%>
 	</div>
 
 	<footer class="footer1">
 	<p>
-		世界人民&nbsp;版权所有&nbsp;&nbsp;2019
+		广东药科大学&nbsp;版权所有&nbsp;&nbsp;2021
 	</p>
 	</footer>
 
 	<script>
+		// 左边点击后切换右边的内容
     function menuBar(menuId) {
         var menubar = "#" + menuId + "";
         var menu_context = menubar + "-context";
@@ -425,6 +454,7 @@ a {
         $("#menu-context > div").slideUp();
         $(menu_context).slideDown();
     }
+		// 左边点击后切换右边的内容
 	</script>
 
 	<script>
@@ -574,6 +604,7 @@ a {
         })
     }
 
+    //被点击就遍历出二类的所有
     function firstButton(first_id) {
         var firstId = "#" + first_id;
         first_type_id = first_id;
@@ -597,6 +628,7 @@ a {
             }
         })
     }
+	//被点击就遍历出二类的所有
 	</script>
 
 	<script>

@@ -2,6 +2,6 @@
 	pageEncoding="UTF-8"%>
 <footer class="footer">
 	<p>
-		广东药科大学&nbsp;版权所有&nbsp;©&nbsp;2019
+		广东药科大学&nbsp;版权所有&nbsp;©&nbsp;2021
 	</p>
 </footer>

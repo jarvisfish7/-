@@ -1,5 +1,6 @@
 package com.linjia.secondshop.controllers;
 
+import com.linjia.secondshop.mappers.UserMapper;
 import com.linjia.secondshop.models.Good;
 import com.linjia.secondshop.models.Order;
 import com.linjia.secondshop.models.User;
@@ -26,6 +27,7 @@ public class OrderController {
 	private final GoodService goodService;
 	private final OrderService orderService;
 	private final UserService userService;
+
 
 	@Autowired
 	public OrderController(GoodService goodService, OrderService orderService, UserService userService) {
@@ -111,22 +113,31 @@ public class OrderController {
 		return ResponseEntity.ok(success);
 	}
 
+	//更新订单状态
 	@RequestMapping(value = "/user/order/update/status/{orderId}&{statusId}", method = RequestMethod.GET)
 	public ResponseEntity updateOrderStatus(@PathVariable Integer orderId,
 			@PathVariable Integer statusId,HttpSession session) {
 		Order order1 = orderService.getOrderById(orderId);
 		User user = userService.getUserById(order1.getCustomerId());
+		//如果是积分商品
 		if(order1.getGoodName().startsWith("积分")) {
 			if(user.getGrade() < order1.getMoney()) {
 				return ResponseEntity.ok(false);
 			}
+			//扣积分
 			orderService.updateGrade(-order1.getMoney(),user.getId());
 		}else {
 			if(user.getCount() < order1.getMoney()) {
 				return ResponseEntity.ok(false);
 			}
+			//扣钱
 			userService.rechargeToCount(-order1.getMoney(), user.getId());
-			orderService.updateGrade(10,user.getId());
+//			orderService.updateGrade(10,user.getId());
+
+			if(!order1.getGoodName().startsWith("积分"))
+			//买多少送多少积分
+			orderService.updateGrade(order1.getMoney(),user.getId());
+
 		}
 		User userSe = ((User)session.getAttribute("user"));
 		userSe.setCount(user.getCount()-order1.getMoney());
@@ -140,10 +151,12 @@ public class OrderController {
 		return ResponseEntity.ok(success);
 	}
 
+	//创建订单
 	@RequestMapping(value = "/user/order/create", method = RequestMethod.POST)
 	public ResponseEntity createOrder(@RequestBody Order order) {
 		Boolean success = orderService.insertOrder(order) > 0;
 		if (success) {
+			//如果不是积分的商品
 			if(!order.getGoodName().startsWith("积分")) {
 				success = goodService.updateGoodStatusId(0, order.getGoodId()) > 0;
 			}
@@ -167,15 +180,19 @@ public class OrderController {
 		orderService.changOrderScore(score,orderid);
 		Order order = orderService.getOrderById(orderid);
 		Good good = goodService.getGoodById(order.getGoodId());
+		User user = userService.getUserById(order.getCustomerId());
 		if(score == 1) {
-			//评价过低,减少信用分
+			//评价过低,减少信用等级一级
 			userService.changGrade(-1,good.getUserId());
 		}else if(score == 5) {
-			//评价满分,增加信用分
+			//评价满分,增加信用等级一级
 			userService.changGrade(1,good.getUserId());
-		}else {
-			//其他评分不处理
 		}
+		else {
+			//其他评分不处理等级
+		}
+		//评分决定对卖家的积分奖励
+		orderService.updateGrade(score*10,user.getId());
 		return ResponseEntity.ok(true);
 	}
 	
